@@ -1,15 +1,15 @@
 @extends('layouts.app')
-@section('title', '商品一覧')
+@section('title', 'Cafe Sugih Rasa')
 @section('content')
-    {{ link_to_route('items.create', '新規登録', [], ['class' => 'btn btn-primary']) }}
+    {{ link_to_route('items.create', 'Tambah Menu', [], ['class' => 'btn btn-primary']) }}
     <table class="table table-striped">
         <thead>
         <tr>
             <th>ID</th>
-            <th>商品名</th>
-            <th>商品説明</th>
-            <th>値段</th>
-            <th>画像URL</th>
+            <th>Nama</th>
+            <th>Deskripsi</th>
+            <th>Harga</th>
+            <th>URL</th>
             <th></th>
             <th></th>
         </tr>
@@ -25,7 +25,7 @@
                 <td>{{ link_to_route('items.edit', 'Edit', ['item' => $item->id], ['class' => 'btn btn-primary']) }}</td>
                 <td>
                     {{ Form::open(['route' => ['items.destroy', $item->id], 'method' => 'delete']) }}
-                    {{ Form::submit('削除', ['class' => 'btn btn-danger']) }}
+                    {{ Form::submit('Hapus', ['class' => 'btn btn-danger']) }}
                     {{ Form::close() }}
                 </td>
 
