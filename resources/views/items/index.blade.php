@@ -7,6 +7,7 @@
         <tr>
             <th>ID</th>
             <th>Nama</th>
+            <th>Category</th>
             <th>Deskripsi</th>
             <th>Harga</th>
             <th>URL</th>
@@ -19,6 +20,7 @@
             <tr>
                 <td>{{ link_to_route('items.show', $item->id, ['item' => $item->id]) }}</td>
                 <td>{{$item->name}}</td>
+                <td>{{$item->category->name}}</td>
                 <td>{{$item->description}}</td>
                 <td>{{$item->price}}</td>
                 <td>{{$item->image_url}}</td>

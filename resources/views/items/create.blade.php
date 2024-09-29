@@ -3,21 +3,28 @@
 @section('content')
     {{ Form::open(['route' => 'items.store']) }}
     <div class="form-group">
-        {{ Form::label('name', 'Nama Menu：') }}
+        {{ Form::label('name', 'Menu Name ：') }}
         {{ Form::text('name', null, ['class' => 'form-control']) }}
         @if ($errors->first('name'))
             <p class="validation">※{{$errors->first('name')}}</p>
         @endif
     </div>
     <div class="form-group">
-        {{ Form::label('description', 'Deskripsi：') }}
+        {{ Form::label('description', 'Description ：') }}
         {{ Form::text('description', null, ['class' => 'form-control']) }}
         @if ($errors->first('description'))
             <p class="validation">※{{$errors->first('description')}}</p>
         @endif
     </div>
     <div class="form-group">
-        {{ Form::label('price', 'Harga：') }}
+        {{ Form::label('category_id', 'Category ：') }}
+        {{ Form::select('category_id', $categories ,null, ['class' => 'form-control']) }}
+        @if ($errors->first('category'))
+            <p class="validation">※{{$errors->first('category')}}</p>
+        @endif
+    </div>
+    <div class="form-group">
+        {{ Form::label('price', 'Price ：') }}
         {{ Form::number('price', null, ['class' => 'form-control']) }}
         @if ($errors->first('price'))
             <p class="validation">※{{$errors->first('price')}}</p>
@@ -31,7 +38,7 @@
         @endif
     </div>
     <div class="form-group">
-        {{ Form::submit('登録', ['class' => 'btn btn-primary form-control']) }}
+        {{ Form::submit('Submit', ['class' => 'btn btn-primary form-control']) }}
     </div>
     {{ Form::close() }}
 @endsection

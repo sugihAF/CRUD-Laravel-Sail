@@ -17,6 +17,13 @@
         @endif
     </div>
     <div class="form-group">
+        {{ Form::label('category_id', 'Category:') }}
+        {{ Form::select('category_id',$categories ,$item->category->id, ['class' => 'form-control']) }}
+        @if ($errors->first('category'))
+            <p class="validation">※{{$errors->first('category')}}</p>
+        @endif
+    </div>
+    <div class="form-group">
         {{ Form::label('price', 'Price：') }}
         {{ Form::number('price', $item->price, ['class' => 'form-control']) }}
         @if ($errors->first('price'))

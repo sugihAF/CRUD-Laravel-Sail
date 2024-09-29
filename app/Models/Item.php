@@ -15,4 +15,8 @@ class Item extends Model
         'image_url',
         'price',
     ];
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreItemRequest;
+use App\Models\Category;
 use App\Models\Item;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,9 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('items.create');
+        $categories = Category::listOfOptions();
+
+        return view('items.create', compact('categories'));
     }
 
     /**
@@ -31,11 +34,13 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
-        Item::create([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'price' => $request->input('price'),
-            'image_url' => $request->input('image_url'),
+        $category = Category::find($request->input('category_id'));
+
+        $category->items()->create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'image_url' => $request->image_url,
         ]);
 
         return redirect()->route('items.index');
@@ -55,7 +60,9 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        return view('items.edit', compact('item'));
+        $categories = Category::listOfOptions();
+
+        return view('items.edit', compact('item', 'categories'));
     }
 
 
@@ -64,12 +71,12 @@ class ItemController extends Controller
      */
     public function update(StoreItemRequest $request, Item $item)
     {
-        $item->update([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'price' => $request->input('price'),
-            'image_url' => $request->input('image_url'),
-        ]);
+        $item->name = $request->input('name');
+        $item->description = $request->input('description');
+        $item->price = $request->input('price');
+        $item->image_url = $request->input('image_url');
+        $category = Category::find($request->input('category_id'));
+        $category->items()->save($item);
 
         return redirect()->route('items.index');
     }
