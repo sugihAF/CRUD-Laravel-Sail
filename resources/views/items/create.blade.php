@@ -24,6 +24,13 @@
         @endif
     </div>
     <div class="form-group">
+        {{ Form::label('stock_quantity', 'Stock Qty：') }}
+        {{ Form::number('stock_quantity', null, ['class' => 'form-control']) }}
+        @if ($errors->first('stock_quantity'))
+            <p class="validation">※{{$errors->first('stock_quantity')}}</p>
+        @endif
+    </div>
+    <div class="form-group">
         {{ Form::label('price', 'Price ：') }}
         {{ Form::number('price', null, ['class' => 'form-control']) }}
         @if ($errors->first('price'))

@@ -4,6 +4,7 @@
     <p>ID:{{ $item->id }}</p>
     <p>Name：{{ $item->name }}</p>
     <p>Category：{{ $item->category->name }}</p>
+    <p>Stock Qty：{{ $item->stock_quantity }}</p>
     <p>Description：{{ $item->description }}</p>
     <p>Price：{{ $item->price }}</p>
     <p>Image:{{ $item->image_url }}</p>

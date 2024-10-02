@@ -39,6 +39,7 @@ class ItemController extends Controller
         $category->items()->create([
             'name' => $request->name,
             'description' => $request->description,
+            'stock_quantity' => $request->stock_quantity,
             'price' => $request->price,
             'image_url' => $request->image_url,
         ]);
@@ -73,6 +74,7 @@ class ItemController extends Controller
     {
         $item->name = $request->input('name');
         $item->description = $request->input('description');
+        $item->stock_quantity = $request->input('stock_quantity');
         $item->price = $request->input('price');
         $item->image_url = $request->input('image_url');
         $category = Category::find($request->input('category_id'));
