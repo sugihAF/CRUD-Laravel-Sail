@@ -15,10 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    #Item
+    Route::resource('items', ItemController::class);
+
+    #Category
+    Route::resource('categories', CategoryController::class);
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
-#Item
-Route::resource('items', ItemController::class);
-#Category
-Route::resource('categories', CategoryController::class);
+
+Auth::routes();

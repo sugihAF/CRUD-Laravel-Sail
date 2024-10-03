@@ -1,0 +1,13 @@
+/* resources/css/app.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 960px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
