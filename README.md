@@ -1,6 +1,7 @@
+
 # CRUD Laravel Sail
 
-This repository is a sample CRUD (Create, Read, Update, Delete) application built using Laravel and Sail, which demonstrates the use of basic CRUD operations within a Laravel project.
+This repository is a sample CRUD (Create, Read, Update, Delete) application built using Laravel and Sail, demonstrating the use of basic CRUD operations within a Laravel project.
 
 **Demo:** [http://18.222.249.8](http://18.222.249.8)
 
@@ -14,11 +15,11 @@ This repository is a sample CRUD (Create, Read, Update, Delete) application buil
 
 ## Project Overview
 
-This project demonstrates how to build a simple CRUD application using the Laravel framework with Docker through Laravel Sail. It includes the functionality to create, read, update, and delete records in a database. The project is ideal for those who are learning Laravel or looking for a basic project setup using Laravel and Docker.
+This project demonstrates how to build a simple CRUD application using the Laravel framework with Docker through Laravel Sail. It includes functionality to create, read, update, and delete records in a database. The project is ideal for learners or developers looking for a basic project setup using Laravel and Docker.
 
 ## Prerequisites
 
-Before you begin, ensure you have met the following requirements:
+Ensure you have the following before starting:
 
 - PHP >= 8.0
 - Composer
@@ -55,31 +56,28 @@ Follow these steps to set up the project locally:
 
 4. **Start Laravel Sail:**
 
-To use Docker, you can start Laravel Sail with the following command:
+    Start Sail using Docker:
 
     ```bash
-    
-    ./vendor/bin/sail up -d
+   ./vendor/bin/sail up -d
     ```
 
-5. ** This command will pull the necessary Docker containers (for PHP, MySQL, etc.) and run them. :**
+    This command will pull the necessary Docker containers (for PHP, MySQL, etc.) and run them.
 
-Run Migrations:
+5. **Run Migrations:**
 
-After the Docker containers are up and running, migrate the database:
+    After the Docker containers are up, run the following command to migrate the database:
 
     ```bash
-    
     ./vendor/bin/sail artisan migrate
     ```
 
 6. **Access the Application:**
 
-Once Sail is up, you can access the application at:
+    Once Sail is running, access the application at:
 
     ```bash
-    
-        http://localhost
+    http://localhost
     ```
 
 7. **Login:**
@@ -93,15 +91,15 @@ Once Sail is up, you can access the application at:
 
 Once the application is running, you can use the following endpoints to manage data:
 
-- **items:** `/items` – Add CRUD items menu.
-- **categories:** `/categories` – View categories.
+- **Items:** `/items` – Manage CRUD items.
+- **Categories:** `/categories` – View categories.
 
-You can test the CRUD operations by accessing these endpoints directly in your browser, or by using an API client like Postman or Insomnia to make requests.
+Test CRUD operations directly in your browser or use an API client (e.g., Postman, Insomnia) to make requests.
 
 ## Features
 
-- **Basic CRUD operations:** Allows users to Create, Read, Update, and Delete records.
-- **Dockerized environment:** Easy setup using Laravel Sail and Docker, providing a containerized development environment.
-- **Database migrations:** Built-in migration support to manage the application's database schema.
-- **RESTful API structure:** The project follows RESTful conventions for its routes and controllers.
-- **Scalable:** The project architecture allows for easy extension and modification.
+- **Basic CRUD operations:** Create, Read, Update, and Delete records.
+- **Dockerized environment:** Easy setup using Laravel Sail and Docker.
+- **Database migrations:** Built-in support for managing the application's database schema.
+- **RESTful API structure:** Follows RESTful conventions for routes and controllers.
+- **Scalable:** The project architecture allows easy extension and modification.
